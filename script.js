@@ -1,19 +1,86 @@
-function displayFileContents(contents) {
-    // Menampilkan isi file dalam elemen dengan id "fileContents"
-    var fileContentsElement = document.getElementById('fileContents');
-    fileContentsElement.textContent = contents;
-  }
-  
-  document.getElementById('fileInput').addEventListener('change', function(event) {
-    var file = event.target.files[0];
-    var reader = new FileReader();
-    
-    reader.onload = function(event) {
-      var contents = event.target.result;
-      console.log(contents); 
-      displayFileContents(contents);
-    };
-    
-    reader.readAsText(file);
+document.addEventListener("DOMContentLoaded", function() {
+  const alphabetLinks = document.getElementById("alphabet-links");
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  letters.forEach(letter => {
+      const link = document.createElement('a');
+      link.href = `#`;
+      link.textContent = letter;
+      link.addEventListener("click", function(event) {
+          event.preventDefault();
+          loadSongs(letter);
+      });
+      alphabetLinks.appendChild(link);
   });
-  
+});
+
+function loadSongs(letter) {
+  const articleContent = document.getElementById("article-content");
+  articleContent.innerHTML = ""; // Kosongkan konten sebelum memuat konten baru
+
+  const lyricsData = {
+      'A': ['Ahibbak', 'Ana Batba Galbi', 'Ana Laulak', 'Aktsar', 'Allahul Kafi'],
+      'B': ['Balway', 'Birosulillah'],
+      'C': ['Bencana', 'Bahibbak'],
+      'D': ['Deen Assalam', 'Bahibbak'],
+      'E': ['Bencana', 'Bahibbak'],
+      'F': ['Fardu Wajib', 'Bahibbak'],
+      'G': ['Gammarese', 'Bahibbak'],
+      'H': ['Habibi yanurul aini', 'Bahibbak'],
+      'I': ['Inta Dunya', 'Bahibbak'],
+      'J': ['Bencana', 'Bahibbak'],
+      'K': ['Katabna', 'Bahibbak'],
+      'L': ['Bencana', 'Lil Muhibbin'],
+      'M': ['Mayyal-mayal', 'Mayjus', 'Maulana', 'Mugrom'],
+      'N': ['Nasam alainal hawa', 'Nawwarti'],
+      'O': ['Qo', 'Bahibbak'],
+      'P': ['Bencana', 'Bahibbak'],
+      'Q': ['Qomarun', 'Bahibbak'],
+      'R': ['Bencana', 'Bahibbak'],
+      'S': ['Sarallail', 'Sallulinnas'],
+      'T': ['Tabassam', 'Bahibbak'],
+      'U': ['Bencana', 'Bahibbak'],
+      'V': ['Bencana', 'Bahibbak'],
+      'W': ['Bencana', 'Bahibbak'],
+      'X': ['Bencana', 'Bahibbak'],
+      'Y': ['Ya Ward', 'Ya Robbi Solli'],
+      'Z': ['Bencana', 'Bahibbak'],
+      // dan seterusnya...
+  };
+
+  const songs = lyricsData[letter];
+  if (songs) {
+      const list = document.createElement("ul");
+      songs.forEach(song => {
+          const listItem = document.createElement("li");
+          listItem.textContent = song;
+          listItem.addEventListener("click", function() {
+              loadLyrics(letter, song);
+          });
+          list.appendChild(listItem);
+      });
+      articleContent.appendChild(list);
+  }
+}
+
+function loadLyrics(letter, song) {
+  const articleContent = document.getElementById("article-content");
+  articleContent.innerHTML = ""; 
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', `lyric/${song}.txt`, true);
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        const lyricsText = xhr.responseText;
+        const lyricsLines = lyricsText.split(/\r?\n/);
+        lyricsLines.forEach(line => {
+          if (line.trim() !== "") { 
+              const lyricsParagraph = document.createElement('p');
+              lyricsParagraph.textContent = line;
+              lyricsParagraph.style.textAlign = "center"; 
+              articleContent.appendChild(lyricsParagraph);
+            }
+          });
+      }
+  };
+  xhr.send();
+}
