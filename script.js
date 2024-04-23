@@ -18,33 +18,33 @@ function loadSongs(letter) {
   articleContent.innerHTML = ""; // Kosongkan konten sebelum memuat konten baru
 
   const lyricsData = {
-      'A': ['Ahibbak', 'Ana Batba Galbi', 'Ana Laulak', 'Aktsar', 'Allahul Kafi'],
-      'B': ['Balway', 'Birosulillah'],
+      'A': ['Ahibbak', 'Aktsar', 'Ala Bali', 'Alamate','Allahul Kafi', 'Alqolbu Mutayyam','Ana Batba Galbi', 'Ana Laulak',  'Asjal Ruwhi', 'Assalamualaik Zainal Ambiya', 'Annabi Sollu alaih'],
+      'B': ['Balway', 'Birosulillah', 'Busrolana'],
       'C': ['Bencana', 'Bahibbak'],
       'D': ['Deen Assalam', 'Bahibbak'],
       'E': ['Bencana', 'Bahibbak'],
       'F': ['Fardu Wajib', 'Bahibbak'],
       'G': ['Gammarese', 'Bahibbak'],
       'H': ['Habibi yanurul aini', 'Bahibbak'],
-      'I': ['Inta Dunya', 'Bahibbak'],
+      'I': ['Ilahana','Inna Fil Jannati','Inta Dunya', 'Bahibbak'],
       'J': ['Bencana', 'Bahibbak'],
-      'K': ['Katabna', 'Bahibbak'],
+      'K': ['Katabna', 'Khoyrol Bariyah'],
       'L': ['Bencana', 'Lil Muhibbin'],
-      'M': ['Mayyal-mayal', 'Mayjus', 'Maulana', 'Mugrom'],
+      'M': ['Mayyal-mayal', 'Mayjus', 'Maulana', 'Mugrom', 'Mathasibnesh'],
       'N': ['Nasam alainal hawa', 'Nawwarti'],
       'O': ['Qo', 'Bahibbak'],
       'P': ['Bencana', 'Bahibbak'],
       'Q': ['Qomarun', 'Bahibbak'],
       'R': ['Bencana', 'Bahibbak'],
-      'S': ['Sarallail', 'Sallulinnas'],
-      'T': ['Tabassam', 'Bahibbak'],
+      'S': ['Sarallail', 'Sallulinnas', 'Solatum', 'Solawat Nu','Sollalohu ala Muhammad'],
+      'T': ['Tabassam', 'Tohirul Qolbi', 'Tolaal'],
       'U': ['Bencana', 'Bahibbak'],
       'V': ['Bencana', 'Bahibbak'],
       'W': ['Bencana', 'Bahibbak'],
-      'X': ['Bencana', 'Bahibbak'],
-      'Y': ['Ya Ward', 'Ya Robbi Solli'],
+      'X': ['Wahdana', 'Bencana', 'Bahibbak'],
+      'Y': ['Ya Ward', 'Ya Robbi Solli', 'Yatarim'],
       'Z': ['Bencana', 'Bahibbak'],
-      // dan seterusnya...
+
   };
 
   const songs = lyricsData[letter];
