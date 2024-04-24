@@ -2,9 +2,20 @@ function myFunction() {
   var element = document.body;
   element.classList.toggle("dark-mode");
 }
+window.onload = function() {
+  if (!localStorage.getItem('pesanSelamatDatang')) {
+      alert("Selamat Datang di Web nya Alif Gambus!");
+      localStorage.setItem('pesanSelamatDatang', 'sudahDitampilkan');
+  }
+};
+function toggleDarkMode() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   const alphabetLinks = document.getElementById("alphabet-links");
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const letters = 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z'.split('');
   letters.forEach(letter => {
       const link = document.createElement('a');
       link.href = `#`;
@@ -19,27 +30,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function loadSongs(letter) {
   const articleContent = document.getElementById("article-content");
-  articleContent.innerHTML = ""; // Kosongkan konten sebelum memuat konten baru
+  articleContent.innerHTML = ""; 
 
   const lyricsData = {
-      'A': ['Ahibbak', 'Aktsar', 'Ala Bali', 'Alamate','Allahul Kafi', 'Alqolbu Mutayyam','Ana Batba Galbi', 'Ana Laulak',  'Asjal Ruwhi', 'Assalamualaik Zainal Ambiya', 'Annabi Sollu alaih', 'Azizah', 'Azzak Biladak'],
+      'A': ['Ahibbak Lautikun Hadir' ,'Ahibbak', 'Aktsar', 'Ala Bali', 'Alamate', 'Allah ala Nuri Rosulillah','Allahul Kafi', 'Alqolbu Mutayyam','Ana Batba Galbi', 'Ana Laulak',  'Asjal Ruwhi', 'Assalamualaik Zainal Ambiya', 'Annabi Sollu alaih', 'Azizah', 'Azzak Biladak'],
       'B': ['Balway', 'Birosulillah', 'Busrolana'],
       'C': ['Bencana', 'Bahibbak'],
       'D': ['Deen Assalam', 'Bahibbak'],
       'E': ['Bencana', 'Bahibbak'],
       'F': ['Fardu Wajib', 'Farrijilham'],
-      'G': ['Gammarese', 'Bahibbak'],
+      'G': ['Gammarese', 'Gonnili'], 
       'H': ['Habibi yanurul aini', 'Hayyul Hadi'],
-      'I': ['Ikan Dalam Kolam','Ilahana','Ilahi Tam Mimi' ,'Inna Fil Jannati','Inta Dunya', 'Bahibbak'],
+      'I': ['Ifroh Ya Albi', 'Ikan Dalam Kolam','Ilahana','Ilahi Tam Mimi' ,'Inna Fil Jannati','Inta Dunya', 'Bahibbak'],
       'J': ['Bencana', 'Bahibbak'],
       'K': ['Katabna', 'Khayalanku','Khoyrol Bariyah'],
-      'L': ['Bencana', 'Lil Muhibbin'],
+      'L': ['Lailaha Illallah', 'Lil Muhibbin'],
       'M': ['Man Ana','Mayyal-mayal', 'Mayjus', 'Maulana', 'Mugrom', 'Mathasibnesh'],
-      'N': ['Nasam alainal hawa', 'Nawwarti'],
+      'N': ['Nahl Fouq' ,'Nasam alainal hawa', 'Nawwarti'],
       'O': ['Qo', 'Bahibbak'],
       'P': ['Pantun Janda', 'Bahibbak'],
-      'Q': ['Rahmatal Lil Alamin' ,'Qomarun', 'Bahibbak'],
-      'R': ['Robbi Khollaq','Romadhon Tajalla' ,'Roti Buaya', 'Bahibbak'],
+      'Q': ['Qilil Asyiqin','Qod Ansoha','Qomarun', 'Bahibbak'],
+      'R': ['Rahmatal Lil Alamin', 'Robbi Khollaq','Romadhon Tajalla' ,'Roti Buaya', 'Bahibbak'],
       'S': ['Sarallail', 'Sallulinnas', 'Solatum', 'Solawat Nu','Sollalohu ala Muhammad', 'Sufak'],
       'T': ['Tabassam', 'Talattof', 'Tohirul Qolbi', 'Tolaal'],
       'U': ['Bencana', 'Bahibbak'],
@@ -47,7 +58,7 @@ function loadSongs(letter) {
       'W': ['Wahdana','Bencana', 'Bahibbak'],
       'X': ['Bencana', 'Bahibbak'],
       'Y': ['Ya Ward', 'Ya Imamarrus', 'Ya Robbi Solli', 'Yatarim'],
-      'Z': ['Bencana', 'Bahibbak'],
+      'Z': ['Zauzati', 'Bahibbak'],
 
   };
 
